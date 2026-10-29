@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Kênh Tin Nóng — demo page</title>
+  <link rel="stylesheet" href="/content/content.css">
+  <style>
+    body { font: 16px/1.6 system-ui, "Segoe UI", Arial, sans-serif; max-width: 760px; margin: 24px auto; padding: 0 16px; color: #222; }
+    .bar { font: 13px system-ui; background: #fff3cd; border: 1px solid #e0c36b; padding: 8px 12px; border-radius: 6px; }
+    .bar button { font: inherit; margin-left: 8px; }
+    img { display: block; max-width: 100%; margin: 12px 0; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <p class="bar">Preview of the content script running on a page. Text is scanned automatically.
+    <button id="sim">Simulate “Analyze with AI Filter” on the banner</button></p>
+
+  <h1>Tin tức hôm nay</h1>
+  <p>Thành phố Hồ Chí Minh vừa khánh thành tuyến metro số 1, phục vụ hàng chục nghìn lượt khách mỗi ngày trong tuần đầu vận hành.</p>
+  <p>SỐC! Bác sĩ giấu kín sự thật: loại lá này chữa khỏi hoàn toàn tiểu đường chỉ sau 7 ngày. Chia sẻ ngay trước khi bị xóa!</p>
+  <p>The city council approved a new budget for public libraries, adding evening hours at twelve branches starting next month.</p>
+  <p>Kiếm tiền online tại nhà 5 triệu/ngày, không cần vốn! Click here, liên hệ Zalo: 0901 234 567 để được hướng dẫn.</p>
+
+  <img id="banner" alt="Promotional banner" width="640" height="200" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='200'%3E%3Crect width='640' height='200' fill='%23b30000'/%3E%3Ctext x='320' y='95' fill='gold' font-size='44' font-family='Arial' font-weight='bold' text-anchor='middle'%3EKÈO BÓNG 88%3C/text%3E%3Ctext x='320' y='150' fill='white' font-size='28' font-family='Arial' text-anchor='middle'%3EThắng lớn — Hoàn trả 10%25%3C/text%3E%3C/svg%3E">
+
+  <p>Normal paragraph about the weather: light rain expected in the afternoon with temperatures around 30°C.</p>
+
+  <script src="/content/content.js"></script>
+  <script>
+    // content.js only auto-scans in the top frame; inside the preview iframe, kick off a scan
+    // the same way the background does after a settings change.
+    if (window.top !== window) window.__browsieSimulate({ type: "settingsChanged" });
+    document.getElementById("sim").addEventListener("click", () => {
+      const src = document.getElementById("banner").src;
+      window.__browsieSimulate({ type: "imageStatus", status: "analyzing", srcUrl: src, itemId: "img-demo" });
+      setTimeout(() => window.__browsieSimulate({
+        type: "imageStatus", status: "done", srcUrl: src, itemId: "img-demo",
+        verdict: { label: "GAMBLING_AD", confidence: 0.92, rationale: "OCR found “Kèo bóng 88 — Thắng lớn”; gambling keywords (BR-05)." },
+      }), 1200);
+    });
+  </script>
+</body>
+</html>

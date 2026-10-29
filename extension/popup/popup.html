@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Browsie</title>
+  <link rel="stylesheet" href="../shared/ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="stack">
+    <header class="row between">
+      <h1>Browsie</h1>
+      <div class="row">
+        <div class="lang-switch" role="group" data-i18n-aria-label="common.language">
+          <button type="button" data-lang="vi" lang="vi">VI</button>
+          <button type="button" data-lang="en" lang="en">EN</button>
+        </div>
+        <label class="row" for="enabled">
+          <span id="enabledText"></span>
+          <input type="checkbox" id="enabled" role="switch" aria-describedby="enabledText">
+        </label>
+      </div>
+    </header>
+
+    <div id="consentBanner" class="card" hidden>
+      <p data-i18n="popup.consentPaused"></p>
+      <button class="primary" id="openConsent" data-i18n="popup.reviewEnable"></button>
+    </div>
+
+    <section class="card" aria-labelledby="sensLabel">
+      <div class="row between">
+        <label id="sensLabel" for="sensitivity"><strong data-i18n="popup.sensitivity"></strong></label>
+        <output id="sensValue" for="sensitivity"></output>
+      </div>
+      <input type="range" id="sensitivity" min="0" max="2" step="1">
+      <p class="muted" data-i18n="popup.sensHint"></p>
+    </section>
+
+    <section aria-labelledby="pageHeading">
+      <div class="row between">
+        <h2 id="pageHeading" data-i18n="popup.thisPage"></h2>
+        <span id="host" class="muted"></span>
+      </div>
+      <p id="status" class="muted" role="status"></p>
+      <ul id="items" class="plain"></ul>
+      <div class="row">
+        <button id="allowlistBtn"></button>
+      </div>
+      <p id="allowlistErr" class="error" role="alert"></p>
+    </section>
+
+    <footer class="row between">
+      <span id="backend" class="muted" data-i18n="popup.checkingBackend"></span>
+      <button id="openOptions" data-i18n="popup.openOptions"></button>
+    </footer>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

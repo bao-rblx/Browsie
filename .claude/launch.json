@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "browsie-ui",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["extension/dev/serve.mjs"],
+      "port": 5173
+    }
+  ]
+}

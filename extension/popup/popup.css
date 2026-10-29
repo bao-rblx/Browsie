@@ -1,0 +1,13 @@
+body { width: 340px; }
+main { padding: 12px; }
+input[type="range"] { width: 100%; }
+#items li { border: 1px solid var(--border); border-radius: var(--radius); padding: 8px; margin-bottom: 8px; }
+#items .snippet { font-size: 12px; color: var(--muted); margin: 4px 0; overflow-wrap: anywhere; }
+#items .rationale { font-size: 13px; margin: 4px 0; }
+#items .actions { display: flex; gap: 6px; }
+#items button { padding: 2px 8px; font-size: 12px; }
+#backend.ok { color: var(--ok); }
+#backend.bad { color: var(--danger); }
+.lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.lang-switch button { border: 0; border-radius: 0; padding: 2px 8px; font-size: 12px; }
+.lang-switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent, #fff); font-weight: 600; }

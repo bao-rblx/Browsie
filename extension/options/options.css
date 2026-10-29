@@ -1,0 +1,6 @@
+main { max-width: 820px; margin: 24px auto; padding: 0 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+td.site { overflow-wrap: anywhere; }
+#alList li { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--border); }
+#alForm input { flex: 1; }

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Browsie</title>
+  <link rel="stylesheet" href="../shared/ui.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="stack">
+    <h1 data-i18n="opt.heading"></h1>
+
+    <section class="card stack" aria-labelledby="genHeading">
+      <h2 id="genHeading" data-i18n="opt.general"></h2>
+      <label class="row" for="lang"><span data-i18n="opt.language"></span>
+        <select id="lang">
+          <option value="vi" lang="vi">Tiếng Việt</option>
+          <option value="en" lang="en">English</option>
+        </select>
+      </label>
+      <label class="row"><input type="checkbox" id="enabled"> <span data-i18n="opt.enable"></span></label>
+      <label class="row"><input type="checkbox" id="ocrEnabled"> <span data-i18n="opt.ocr"></span></label>
+      <label class="row" for="sensitivity"><span data-i18n="opt.sensitivity"></span>
+        <select id="sensitivity">
+          <option value="LOW" data-i18n="opt.levelLow"></option>
+          <option value="MEDIUM" data-i18n="opt.levelMedium"></option>
+          <option value="HIGH" data-i18n="opt.levelHigh"></option>
+        </select>
+      </label>
+    </section>
+
+    <section class="card stack" aria-labelledby="alHeading">
+      <h2 id="alHeading" data-i18n="opt.allowlist"></h2>
+      <p class="muted" data-i18n="opt.allowlistHint"></p>
+      <form id="alForm" class="row" novalidate>
+        <label for="alInput" class="sr-only" data-i18n="opt.domainLabel"></label>
+        <input type="text" id="alInput" placeholder="example.com" aria-describedby="alErr" autocomplete="off">
+        <button class="primary" type="submit" data-i18n="opt.add"></button>
+      </form>
+      <p id="alErr" class="error" role="alert"></p>
+      <ul id="alList" class="plain"></ul>
+    </section>
+
+    <section class="card stack" aria-labelledby="histHeading">
+      <div class="row between">
+        <h2 id="histHeading" data-i18n="opt.history"></h2>
+        <div class="row">
+          <button id="clearSelected" disabled data-i18n="opt.clearSelected"></button>
+          <button id="clearAll" data-i18n="opt.clearAll"></button>
+        </div>
+      </div>
+      <table id="histTable" hidden>
+        <thead>
+          <tr>
+            <th scope="col"><input type="checkbox" id="selectAll" data-i18n-aria-label="opt.selectAll"></th>
+            <th scope="col" data-i18n="opt.colTime"></th>
+            <th scope="col" data-i18n="opt.colSource"></th>
+            <th scope="col" data-i18n="opt.colLabel"></th>
+            <th scope="col" data-i18n="opt.colConf"></th>
+            <th scope="col" data-i18n="opt.colSite"></th>
+          </tr>
+        </thead>
+        <tbody id="histBody"></tbody>
+      </table>
+      <div id="histEmpty" class="empty" hidden>
+        <span class="icon" aria-hidden="true">🛡️</span>
+        <span data-i18n="opt.histEmpty"></span>
+      </div>
+    </section>
+
+    <section class="card stack" aria-labelledby="beHeading">
+      <h2 id="beHeading" data-i18n="opt.backend"></h2>
+      <form id="beForm" class="stack" novalidate>
+        <label class="row" for="backendUrl"><span data-i18n="opt.url"></span> <input type="url" id="backendUrl" size="34"></label>
+        <label class="row" for="apiToken"><span data-i18n="opt.token"></span> <input type="password" id="apiToken" size="34" autocomplete="off"></label>
+        <div class="row">
+          <button class="primary" type="submit" data-i18n="opt.save"></button>
+          <button type="button" id="testBackend" data-i18n="opt.test"></button>
+          <button type="button" id="reloadRules" data-i18n="opt.reloadRules"></button>
+        </div>
+        <p id="beStatus" class="muted" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

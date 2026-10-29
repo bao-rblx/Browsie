@@ -1,0 +1,102 @@
+/* Browsie in-page UI. Prefixed classes + explicit values so page CSS rarely interferes. */
+.browsie-flag--bad {
+  outline: 2px solid #d93025 !important;
+  outline-offset: 2px;
+  background-color: rgba(217, 48, 37, 0.08) !important;
+}
+.browsie-flag--unknown {
+  outline: 2px dashed #f29900 !important;
+  outline-offset: 2px;
+}
+
+.browsie-chip {
+  all: initial;
+  display: inline-block;
+  margin: 0 6px 2px 0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #d93025;
+  color: #fff;
+  font: 600 12px/1.6 system-ui, sans-serif;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.browsie-flag--unknown > .browsie-chip { background: #b06000; }
+.browsie-chip:focus-visible { outline: 2px solid #1a73e8; outline-offset: 2px; }
+
+.browsie-popover,
+.browsie-overlay,
+.browsie-toast {
+  all: initial;
+  box-sizing: border-box;
+  font: 14px/1.45 system-ui, sans-serif;
+  color: #202124;
+}
+.browsie-popover {
+  position: absolute;
+  z-index: 2147483647;
+  width: 320px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.browsie-popover strong,
+.browsie-overlay strong { display: block; font-weight: 700; margin-bottom: 4px; }
+.browsie-popover p,
+.browsie-overlay p { display: block; margin: 0 0 10px; }
+.browsie-popover__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.browsie-popover__actions button {
+  all: initial;
+  font: 600 13px/1 system-ui, sans-serif;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  cursor: pointer;
+}
+.browsie-popover__actions button:nth-child(2) { background: #e8eaed; color: #202124; }
+.browsie-popover__actions button:focus-visible { outline: 2px solid #202124; outline-offset: 2px; }
+
+.browsie-blur { filter: blur(24px) !important; }
+
+.browsie-overlay {
+  position: absolute;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  overflow: auto;
+  border-radius: 6px;
+}
+.browsie-overlay--busy {
+  background: rgba(32, 33, 36, 0.55);
+  color: #fff;
+  font-weight: 600;
+  align-items: center;
+}
+.browsie-overlay--bad {
+  background: rgba(32, 33, 36, 0.78);
+  color: #fff;
+}
+
+.browsie-toast {
+  position: fixed;
+  z-index: 2147483647;
+  right: 16px;
+  bottom: 16px;
+  max-width: 360px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #1e8e3e;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.browsie-toast--warn { background: #b06000; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .browsie-toast { animation: browsie-in 0.2s ease-out; }
+  @keyframes browsie-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}

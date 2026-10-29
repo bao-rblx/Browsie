@@ -1,0 +1,21 @@
+{
+  "name": "browsie-extension",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "test": "node --test \"tests/*.test.js\"",
+    "postinstall": "node scripts/vendor.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "tesseract.js": "7.0.0"
+  },
+  "private": true
+}

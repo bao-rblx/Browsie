@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Browsie — AI Spam Filter",
+  "version": "0.2.0",
+  "description": "Detects spam, fake news and image-embedded gambling ads with rules, OCR and Gemini.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "contextMenus", "offscreen", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "web_accessible_resources": [
+    { "resources": ["lib/i18n.js"], "matches": ["http://*/*", "https://*/*"] }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Browsie",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  },
+  "options_page": "options/options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

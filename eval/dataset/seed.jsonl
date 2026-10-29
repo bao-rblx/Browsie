@@ -1,0 +1,16 @@
+{"id": "b-en-01", "label": "BENIGN", "lang": "en", "source": "TEXT", "text": "The city council approved a new budget for public libraries on Tuesday, adding funds for extended weekend hours."}
+{"id": "b-en-02", "label": "BENIGN", "lang": "en", "source": "TEXT", "text": "Researchers published a peer-reviewed study on sleep and memory in the journal Nature Neuroscience."}
+{"id": "b-vi-01", "label": "BENIGN", "lang": "vi", "source": "TEXT", "text": "Thành phố Hồ Chí Minh triển khai thêm 20 tuyến xe buýt điện phục vụ người dân từ tháng tới."}
+{"id": "b-vi-02", "label": "BENIGN", "lang": "vi", "source": "TEXT", "text": "Trường đại học công bố lịch thi học kỳ và hướng dẫn đăng ký môn học trực tuyến cho sinh viên."}
+{"id": "s-en-01", "label": "SPAM", "lang": "en", "source": "TEXT", "text": "Congratulations winner! You have won an iPhone. Click here to claim, limited time only, act now!"}
+{"id": "s-en-02", "label": "SPAM", "lang": "en", "source": "TEXT", "text": "Make $500 a day from home. Earn money fast with guaranteed returns. Telegram: +84 912 345 678"}
+{"id": "s-vi-01", "label": "SPAM", "lang": "vi", "source": "TEXT", "text": "Kiếm tiền online tại nhà, chỉ còn hôm nay! Nhấn vào đây để nhận quà tặng miễn phí. Zalo 0912 345 678"}
+{"id": "s-vi-02", "label": "SPAM", "lang": "vi", "source": "TEXT", "text": "Đầu tư x10 lợi nhuận mỗi tháng, trúng thưởng lớn, liên hệ Zalo: 0987 654 321 ngay."}
+{"id": "f-en-01", "label": "FAKE_NEWS", "lang": "en", "source": "TEXT", "text": "Shocking! This miracle cure cures cancer in 3 days. Doctors hate it. Share before it's deleted!"}
+{"id": "f-en-02", "label": "FAKE_NEWS", "lang": "en", "source": "TEXT", "text": "You won't believe what they don't want you to know: lemon water cures diabetes, no source needed."}
+{"id": "f-vi-01", "label": "FAKE_NEWS", "lang": "vi", "source": "TEXT", "text": "Sốc! Lá cây này chữa khỏi hoàn toàn ung thư, bác sĩ giấu sự thật bị che giấu. Chia sẻ ngay trước khi bị xóa!"}
+{"id": "f-vi-02", "label": "FAKE_NEWS", "lang": "vi", "source": "TEXT", "text": "Không thể tin nổi: uống nước chanh mỗi sáng chữa khỏi tiểu đường, sự thật bị che giấu."}
+{"id": "g-en-01", "label": "GAMBLING_AD", "lang": "en", "source": "IMAGE", "ocrText": "BET NOW - online casino 200% bonus, free spins every day"}
+{"id": "g-en-02", "label": "GAMBLING_AD", "lang": "en", "source": "IMAGE", "ocrText": "Sports betting jackpot - join 8xbet today"}
+{"id": "g-vi-01", "label": "GAMBLING_AD", "lang": "vi", "source": "IMAGE", "ocrText": "Kèo bóng 88 — Thắng lớn mỗi ngày, hoàn trả 1.5%"}
+{"id": "g-vi-02", "label": "GAMBLING_AD", "lang": "vi", "source": "IMAGE", "ocrText": "Nhà cái uy tín số 1, tài xỉu nổ hũ đổi thưởng"}

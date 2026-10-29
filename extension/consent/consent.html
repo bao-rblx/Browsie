@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Browsie</title>
+  <link rel="stylesheet" href="../shared/ui.css">
+  <style>main { max-width: 640px; margin: 40px auto; padding: 0 16px; } li { margin-bottom: 6px; } select { width: auto; }</style>
+</head>
+<body>
+  <main class="stack">
+    <div class="row between">
+      <h1 data-i18n="consent.title"></h1>
+      <label class="row" for="lang"><span class="sr-only" data-i18n="common.language"></span>
+        <select id="lang">
+          <option value="vi" lang="vi">Tiếng Việt</option>
+          <option value="en" lang="en">English</option>
+        </select>
+      </label>
+    </div>
+    <p data-i18n="consent.intro"></p>
+    <ol>
+      <li data-i18n-html="consent.p1"></li>
+      <li data-i18n-html="consent.p2"></li>
+      <li data-i18n-html="consent.p3"></li>
+      <li data-i18n-html="consent.p4"></li>
+      <li data-i18n="consent.p5"></li>
+    </ol>
+    <div class="row">
+      <button class="primary" id="accept" data-i18n="consent.accept"></button>
+      <button id="decline" data-i18n="consent.decline"></button>
+    </div>
+    <p id="msg" role="status" class="muted"></p>
+  </main>
+  <script type="module" src="consent.js"></script>
+</body>
+</html>
