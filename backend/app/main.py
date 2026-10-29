@@ -133,7 +133,14 @@ def _log(req: DetectionRequest, verdict, latency_ms: float) -> None:
 @app.get("/health")
 def health():
     eng: DetectionEngine = state["engine"]
-    return {"status": "ok", "llm": getattr(eng.llm, "model", "unknown"), "rulesetVersion": eng.ruleset.version}
+    db_status = db.check_db_health()
+    is_healthy = db_status.get("status") == "connected"
+    return {
+        "status": "ok" if is_healthy else "degraded",
+        "llm": getattr(eng.llm, "model", "unknown"),
+        "rulesetVersion": eng.ruleset.version,
+        "database": db_status,
+    }
 
 
 @app.get("/config")

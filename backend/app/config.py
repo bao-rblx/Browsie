@@ -25,6 +25,11 @@ class Settings:
         "LLM_PROVIDER", "gemini" if os.getenv("GEMINI_API_KEY") else "mock"))
     llm_timeout_s: float = field(default_factory=lambda: float(os.getenv("LLM_TIMEOUT_S", "8")))
     database_url: str = field(default_factory=lambda: os.getenv("DATABASE_URL", "sqlite:///./browsie.db"))
+    # Connection pool configuration for PostgreSQL
+    db_pool_size: int = field(default_factory=lambda: int(os.getenv("DB_POOL_SIZE", "10")))
+    db_max_overflow: int = field(default_factory=lambda: int(os.getenv("DB_MAX_OVERFLOW", "20")))
+    db_pool_timeout: float = field(default_factory=lambda: float(os.getenv("DB_POOL_TIMEOUT", "30")))
+    db_pool_recycle: int = field(default_factory=lambda: int(os.getenv("DB_POOL_RECYCLE", "1800")))
     # Shared token the extension sends as X-Browsie-Token. Empty = auth disabled (local dev only).
     api_token: str = field(default_factory=lambda: os.getenv("BROWSIE_API_TOKEN", ""))
     rate_limit_per_min: int = field(default_factory=lambda: int(os.getenv("RATE_LIMIT_PER_MIN", "60")))
