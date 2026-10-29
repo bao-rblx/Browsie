@@ -1,16 +1,22 @@
 {
   "name": "browsie-extension",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chrome MV3 extension for spam, gambling and fake news detection",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "vendor": "node scripts/vendor.mjs",
+    "lint": "node --check background.js content/content.js popup/popup.js options/options.js lib/policy.js lib/rules.js",
     "test": "node --test \"tests/*.test.js\"",
     "postinstall": "node scripts/vendor.mjs"
   },
-  "keywords": [],
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "content-moderation",
+    "gemini"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
