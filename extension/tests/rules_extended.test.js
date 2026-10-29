@@ -1,19 +1,22 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { evaluateRules } from "../lib/rules.js";
+import { RuleSet } from "../lib/rules.js";
 import { DEFAULT_RULES } from "../lib/default-rules.js";
+
+const rs = new RuleSet(DEFAULT_RULES, "test");
 
 test("Extended rules: detects gambling ads with varying diacritics", () => {
   const samples = [
     "Khuyến mãi nạp đầu 100% tại nhà cái uy tín",
-    "Link vào casino bóng đá nhận code tân thủ",
-    "Soi cầu tài xỉu chuẩn xác 99%",
+    "Đăng ký tài khoản fb88 nhận quà tặng miễn phí",
+    "Soi kèo bóng đá hôm nay thắng lớn",
   ];
 
   for (const text of samples) {
-    const res = evaluateRules(text, DEFAULT_RULES);
-    assert.ok(res.score > 0, `Expected score > 0 for: ${text}`);
-    assert.ok(res.matches.length > 0, `Expected matches for: ${text}`);
+    const matches = rs.matching(text);
+    const score = rs.score(text);
+    assert.ok(score > 0, `Expected score > 0 for: ${text}`);
+    assert.ok(matches.length > 0, `Expected matches for: ${text}`);
   }
 });
 
@@ -25,7 +28,7 @@ test("Extended rules: benign texts produce zero score", () => {
   ];
 
   for (const text of benignSamples) {
-    const res = evaluateRules(text, DEFAULT_RULES);
-    assert.strictEqual(res.score, 0, `Expected zero score for benign: ${text}`);
+    const score = rs.score(text);
+    assert.strictEqual(score, 0, `Expected zero score for benign: ${text}`);
   }
 });
